@@ -48,7 +48,7 @@ function Product(props){
                                     <option>4</option>
                                 </select>
                             </li>
-                            <li><button>Add to Cart</button></li>
+                            <li> <button className="button">Add to Cart</button> </li>
                         </ul>
                     </div>
                 </div>
