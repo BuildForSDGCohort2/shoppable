@@ -13,7 +13,8 @@ class Viewproduct extends Component {
             description: this.props.description,
             brand: this.props.brand,
             rating: this.props.rating,
-            numReviews: this.props.numReviews
+            numReviews: this.props.numReviews,
+            quantity: 1
          }
     }
 
@@ -32,8 +33,17 @@ class Viewproduct extends Component {
             })
             .catch(error => console.log(error))
     }
+
+    IncreaseItemQuantity=() =>{
+        this.setState({quantity: this.state.quantity + 1})
+    }
+    DecreaseItemQuantity=()=>{
+        this.setState({quantity: this.state.quantity - 1})
+    }
     
-    
+    AddtoCart=()=>{
+        this.props.history.push("/cart/" + this.props.match.params.id + "?quantity=" + this.state.quantity)
+    }
 
     render() { 
         return ( 
@@ -77,14 +87,13 @@ class Viewproduct extends Component {
                                 Status: {this.state.status}
                             </li> */}
                             <li>
-                                Qty: <select>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                </select>
+                                Qty: 
+                                <p className="card-text text-center">{this.state.quantity}</p>
+                                <button className="Button1" onClick=  {this.IncreaseItemQuantity}>Add</button>
+                                <button className="Button2" onClick={this.DecreaseItemQuantity}>Decrease</button>
                             </li>
-                            <li> <button className="button">Add to Cart</button> </li>
+                            
+                            <li> <button onClick={this.AddtoCart} className="button">Add to Cart</button> </li>
                         </ul>
                     </div>
                 </div>

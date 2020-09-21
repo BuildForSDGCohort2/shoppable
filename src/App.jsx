@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import Nav from './Nav'
 import Home from './Home'
 import Viewproduct from './Viewproduct'
+import Cart from './Cart'
 import SideNav, {NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import { BrowserRouter, Route} from 'react-router-dom'
@@ -59,6 +60,7 @@ class App extends Component {
                 <div>
                     <Route path='/' exact component={Home} />
                     <Route path='/products/:id' component={Viewproduct} />
+                    <Route path='/cart/:id?' component={Cart} />
                 </div>
            </BrowserRouter>
          );
